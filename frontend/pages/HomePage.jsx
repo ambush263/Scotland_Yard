@@ -6,7 +6,7 @@ function HomePage(){
     const navigate = useNavigate()
 
     return(
-        <div className={styles.background}>
+        <div className={styles.themeBackground}>
             <div className={styles.fogOverlay}></div>
             <div className={styles.centerCard}>
                 <div className={styles.badge}>🔍</div>
@@ -15,6 +15,7 @@ function HomePage(){
                 <div className={styles.buttonGroup}>
                     <Button onClick={() => navigate("/login")} name="Sign In" primary />
                     <Button name="Play as Guest" />
+                    <Button onClick={() => navigate("/pass-lobby")} name="Pass and Play" />
                 </div>
             </div>
         </div>

@@ -17,8 +17,8 @@ function Button({onClick,name,primary}){
         <button
             style={base}
             onClick={onClick}
-            onMouseEnter={e => { e.target.style.opacity = "0.8"; e.target.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={e => { e.target.style.opacity = "1"; e.target.style.transform = "translateY(0)"; }}
+            onMouseEnter={e => { e.currentTarget.style.opacity = "0.8"; e.target.style.transform = "translateY(-2px)"; }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.target.style.transform = "translateY(0)"; }}
         >
             {name}
         </button>

@@ -1,0 +1,83 @@
+
+
+.playerList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.playerItem {
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.playerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.playerName {
+    font-family: 'Playfair Display', serif;
+    color: #c9a84c;
+    margin: 0;
+}
+.deleteBtn {
+    background: transparent;
+    border: 1px solid rgba(201, 168, 76, 0.5);
+    color: #c9a84c;
+    cursor: pointer;
+    padding: 0.2rem 0.6rem;
+    font-family: 'Playfair Display', serif;
+}
+.playerInput {
+    background: transparent;
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    color: #c9a84c;
+    padding: 0.5rem 1rem;
+    font-family: 'Playfair Display', serif;
+    outline: none;
+    width: 70%;
+}
+
+.playerInput::placeholder {
+    color: rgba(201, 168, 76, 0.4);
+}
+.addBtn {
+    background: #c9a84c;
+    border: none;
+    color: #1a1a2e;
+    padding: 0.5rem 1rem;
+    font-family: 'Playfair Display', serif;
+    cursor: pointer;
+    width: 30%;
+}
+.pageTitle {
+    font-family: 'Playfair Display', serif;
+    color: #c9a84c;
+    font-size: 2rem;
+    letter-spacing: 0.06em;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+}
+.inputRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0;
+}
+.buttonRow{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width:100%
+}
+.errorMsg{
+    color: #e05c5c;
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    margin: 0;
+    letter-spacing: 0.03em;
+}

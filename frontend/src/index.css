@@ -1,12 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html,body,#root{
     background-color: black;
-    height:100%;
-    padding:0;
-    margin:0;
 }
 body {
   min-height: 100vh;
 }
+
+.themeBackground {
+    background-image: url("../images/home-background-2.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
 .fogOverlay {
     position: absolute;
     inset: 0;
@@ -28,4 +44,14 @@ body {
     backdrop-filter: blur(6px);
     min-width: 300px;
     box-shadow: 0 0 40px rgba(0,0,0,0.6), inset 0 0 30px rgba(201,168,76,0.03);
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #c9a84c;
+    letter-spacing: 0.06em;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
 }
