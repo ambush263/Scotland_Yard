@@ -12,7 +12,7 @@ class Player:
                          "bus":{"cost":3,"nos":3},
                          "under":{"cost":5,"nos":3},
                          "black":{"cost":7,"nos":5},}
-            
+
 def is_valid_move(player:Player,map:dict,next:int) -> bool:
     tickets = player.tic_dict
     if next in map[player.position] and tickets[map[player.position][next]]["nos"] > 0:
@@ -20,7 +20,7 @@ def is_valid_move(player:Player,map:dict,next:int) -> bool:
     else:
          return False
     
-def move(player:Player,map:dict,next:int) -> None:
+def execute_move(player:Player,map:dict,next:int) -> None:
     if is_valid_move(player,map,next):
         transport = map[player.position][next]
         player.position = next
