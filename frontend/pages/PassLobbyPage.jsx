@@ -5,28 +5,36 @@ import { useNavigate } from "react-router-dom";
 
 function PassLobbyPage() {
     const [playerInput, setPlayerInput] = useState("");
-    const [playerList, setPlayerList] = useState([]);//List of Objects
+    const [playerList, setPlayerList] = useState([]); //List of Objects
     const [errorMsg, setErrorMsg] = useState("");
     const [playErrorMsg, setPlayErrorMsg] = useState("");
     const navigate = useNavigate();
 
     const addPlayer = (input) => {
-        if (playerList.length == 8){
+        if (playerList.length == 8) {
             setErrorMsg("The Lobby is Full");
-            setPlayerInput("")
+            setPlayerInput("");
+            return;
+        }
+        if (!input) {
+            setErrorMsg("Player name cannot be Empty");
+            return;
+        }
+        if (input.length >= 15) {
+            setErrorMsg("Player name should be less than 15 characters");
             return;
         }
         for (let i = 0; i < playerList.length; i++) {
             if (playerList[i].name === input) {
-                setErrorMsg("The Player Already Exists")
+                setErrorMsg("The Player Already Exists");
                 return;
             }
         }
         let newList = [...playerList]; //equivalent to copy(you can still use for loop btw)
         newList.push({ id: playerList.length + 1, name: input });
         setPlayerList(newList);
-        setPlayerInput("")
-        setErrorMsg("")
+        setPlayerInput("");
+        setErrorMsg("");
     };
 
     const deletePlayer = (playerId) => {
@@ -39,20 +47,22 @@ function PassLobbyPage() {
             }
         }
         setPlayerList(newList);
-        console.log(newList)
+        console.log(newList);
         setErrorMsg("");
     };
 
     const startGame = () => {
-        playerList.length > 1 ? navigate("/pass-play") : setPlayErrorMsg("Minimum Two Players are required")
-    }
+        playerList.length > 1
+            ? navigate("/pass-play")
+            : setPlayErrorMsg("Minimum Two Players are required");
+    };
 
     const resetErrorMsgs = (e) => {
-        if(e.target===e.currentTarget){
+        if (e.target === e.currentTarget) {
             setErrorMsg("");
             setPlayErrorMsg("");
         }
-    }
+    };
 
     return (
         <div className="themeBackground">
@@ -64,12 +74,19 @@ function PassLobbyPage() {
                         name="playerInputBox"
                         value={playerInput}
                         onChange={(e) => setPlayerInput(e.target.value)}
-                        onKeyDown={(e) => e.key==="Enter" && addPlayer(playerInput)}
+                        onKeyDown={(e) =>
+                            e.key === "Enter" && addPlayer(playerInput)
+                        }
                         type="text"
                         placeholder="Enter Player Name"
                         className={styles.playerInput}
                     ></input>
-                    <button className={styles.addBtn} onClick={() => addPlayer(playerInput)}>Add</button>
+                    <button
+                        className={styles.addBtn}
+                        onClick={() => addPlayer(playerInput)}
+                    >
+                        Add
+                    </button>
                 </span>
                 {errorMsg && <p className={styles.errorMsg}>{errorMsg}</p>}
                 <ul className={styles.playerList}>
@@ -91,9 +108,17 @@ function PassLobbyPage() {
                 </ul>
                 <span className={styles.buttonRow}>
                     <Button name="Settings"></Button>
-                    <Button onClick={() => {startGame()}} name="Play" primary></Button>
+                    <Button
+                        onClick={() => {
+                            startGame();
+                        }}
+                        name="Play"
+                        primary
+                    ></Button>
                 </span>
-                {playErrorMsg && <p className={styles.errorMsg}>{playErrorMsg}</p>}
+                {playErrorMsg && (
+                    <p className={styles.errorMsg}>{playErrorMsg}</p>
+                )}
             </div>
         </div>
     );
