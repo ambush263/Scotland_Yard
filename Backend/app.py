@@ -10,5 +10,9 @@ def store():
     data = request.get_json(force=True,silent=True)
     player_list = data.get("playerList")
 
+@app.route("/login")
+def save_user():
+    data = request.json()
+    
 if __name__ == "__main__":
     app.run(debug=True)
