@@ -1,3 +1,4 @@
+GRAPH = None
 class Player:
     def __init__(self,type,position):
         self.type = type
@@ -13,15 +14,15 @@ class Player:
                          "under":{"cost":5,"nos":3},
                          "black":{"cost":7,"nos":5},}
 
-def is_valid_move(player:Player,map:dict,next:int) -> bool:
+def is_valid_move(player:Player,map:dict,next:int,next_trans:str) -> bool:
     tickets = player.tic_dict
-    if next in map[player.position] and tickets[map[player.position][next]]["nos"] > 0:
-        return True
+    if next_trans in map[player.position][next]:
+        if next in map[player.position] and tickets[map[player.position][next]]["nos"] > 0:
+            return True
     else:
          return False
     
-def execute_move(player:Player,map:dict,next:int) -> None:
-    if is_valid_move(player,map,next):
-        transport = map[player.position][next]
+def execute_move(player:Player,map:dict,next:int,transport:str) -> None:
+    if is_valid_move(player,map,next,transport):
         player.position = next
         player.tic_dict[transport]["nos"] -= 1
