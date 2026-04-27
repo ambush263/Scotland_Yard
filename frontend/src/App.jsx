@@ -3,6 +3,7 @@ import {createBrowserRouter , RouterProvider} from "react-router-dom";
 import HomePage from "../pages/HomePage"
 import LoginPage from "../pages/LoginPage"
 import PassLobbyPage from '../pages/PassLobbyPage';
+import Play from '../pages/Play'
 import './App.css'
 
 const router=createBrowserRouter([
@@ -17,6 +18,10 @@ const router=createBrowserRouter([
   {
     path : '/pass-lobby',
     element : <PassLobbyPage />
+  },
+  {
+    path : '/pass-play',
+    element : <Play />
   }
 ])
 

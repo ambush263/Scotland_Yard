@@ -1,4 +1,6 @@
-function Button({onClick,name,primary}){
+import {forwardRef} from "react"
+
+const Button = forwardRef(({onClick,name,primary},ref) => {
     const base = {
         fontFamily: "'Playfair Display', serif",
         fontSize: "1rem",
@@ -11,11 +13,12 @@ function Button({onClick,name,primary}){
         background: primary ? "#c9a84c" : "transparent",
         color: primary ? "#1a1a2e" : "#c9a84c",
         width: "100%",
-    };
+    }
 
     return (
         <button
             style={base}
+            ref={ref}
             onClick={onClick}
             onMouseEnter={e => { e.currentTarget.style.opacity = "0.8"; e.target.style.transform = "translateY(-2px)"; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.target.style.transform = "translateY(0)"; }}
@@ -23,6 +26,6 @@ function Button({onClick,name,primary}){
             {name}
         </button>
     );
-}
+})
 
 export default Button
