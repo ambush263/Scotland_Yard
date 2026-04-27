@@ -13,6 +13,7 @@ function PassLobbyPage() {
     const addPlayer = (input) => {
         if (playerList.length == 8){
             setErrorMsg("The Lobby is Full");
+            setPlayerInput("")
             return;
         }
         for (let i = 0; i < playerList.length; i++) {
@@ -24,12 +25,13 @@ function PassLobbyPage() {
         let newList = [...playerList]; //equivalent to copy(you can still use for loop btw)
         newList.push({ id: playerList.length + 1, name: input });
         setPlayerList(newList);
+        setPlayerInput("")
         setErrorMsg("")
     };
 
     const deletePlayer = (playerId) => {
         let newList = [];
-        let newid = 0;
+        let newid = 1;
         for (let i = 0; i < playerList.length; i++) {
             if (playerList[i].id != playerId) {
                 newList.push({ id: newid, name: playerList[i].name });
@@ -60,7 +62,9 @@ function PassLobbyPage() {
                 <span className={styles.inputRow}>
                     <input
                         name="playerInputBox"
+                        value={playerInput}
                         onChange={(e) => setPlayerInput(e.target.value)}
+                        onKeyDown={(e) => e.key==="Enter" && addPlayer(playerInput)}
                         type="text"
                         placeholder="Enter Player Name"
                         className={styles.playerInput}
