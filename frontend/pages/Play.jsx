@@ -1,7 +1,12 @@
 import styles from "./Play.module.css"
+import MapUI from "../components/MapUI"
 
 function Play(){
-    return(<div>Hello World</div>)
+    return(
+        <div className="themeBackground">
+            <MapUI></MapUI>
+        </div>
+    )
 }
 
 export default Play
