@@ -32,6 +32,7 @@
     },
     "boardData" : {
         "turn" : 5,
+        "currentplayer" : "player1",
         "positions" : {"player1" : 22,"player2" : 5}
     },
     "mapData" : {
