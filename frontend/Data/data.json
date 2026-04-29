@@ -18,15 +18,13 @@
 "gameData" : {
     "settings" : {
         "map" : "Scotland-Yard",
-        "boardTheme" : "dark",
         "playerCount" : 2,
         "playerList" : ["player1","player2"],
         "abilities" : false
     },
     "playerData" : {
         "player1" : {
-            "Mr.X" : false,
-            "position" : 22,
+            "role" : "detective",
             "tickets" : {"taxi":8,"bus":5,"underground":1,"blackmarket":0}
         }
     },
@@ -34,14 +32,6 @@
         "turn" : 5,
         "currentplayer" : "player1",
         "positions" : {"player1" : 22,"player2" : 5}
-    },
-    "mapData" : {
-        "nodes" : {
-            "node1" : {
-                "value" : 1,
-                "connections" : {"8" : "taxi","9" : "taxi"}
-            }
-        }
     }
 },
 "maps" : {
@@ -54,7 +44,7 @@
         }
     },
 
-"model-map": {
+"development-map": {
   "nodes": {
     "1": {
       "connections": {

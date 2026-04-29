@@ -1,0 +1,72 @@
+.settingsCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+
+    scrollbar-color: rgba(201, 168, 76, 0.4) transparent;
+}
+
+.centerCard {
+    max-height: 80vh;
+    overflow-y : none;
+}
+
+.mapRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.mapLabel {
+    font-family: 'Playfair Display', serif;
+    color: #c9a84c;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.mapSelect {
+    background: transparent;
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    color: #c9a84c;
+    padding: 0.4rem 0.75rem;
+    font-family: 'Playfair Display', serif;
+    outline: none;
+    cursor: pointer;
+}
+
+.mapSelect option {
+    background: #0f0f1e;
+    color: #c9a84c;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: rgba(200, 190, 170, 0.8);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.checkboxLabel input[type="checkbox"] {
+    accent-color: #c9a84c;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.submitWrapper {
+    margin-top: auto;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+}

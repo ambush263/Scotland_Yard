@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./PassLobbyPage.module.css";
 import Button from "../components/Button";
+import defaultGameSettings from "../Data/defaultGameSettings";
 import { useNavigate } from "react-router-dom";
 
 function PassLobbyPage() {
@@ -9,6 +10,14 @@ function PassLobbyPage() {
     const [errorMsg, setErrorMsg] = useState("");
     const [playErrorMsg, setPlayErrorMsg] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        !localStorage.getItem("gameSettings") &&
+            localStorage.setItem(
+                "gameSettings",
+                JSON.stringify(defaultGameSettings),
+            );
+    }, []);
 
     const addPlayer = (input) => {
         if (playerList.length == 8) {
@@ -51,11 +60,7 @@ function PassLobbyPage() {
         setErrorMsg("");
     };
 
-    const startGame = () => {
-        playerList.length > 1
-            ? navigate("/pass-play")
-            : setPlayErrorMsg("Minimum Two Players are required");
-    };
+    const startGame = () => {};
 
     const resetErrorMsgs = (e) => {
         if (e.target === e.currentTarget) {
@@ -107,10 +112,18 @@ function PassLobbyPage() {
                     ))}
                 </ul>
                 <span className={styles.buttonRow}>
-                    <Button name="Settings"></Button>
+                    <Button
+                        onClick={() => navigate("/gameSettings")}
+                        name="Settings"
+                    ></Button>
                     <Button
                         onClick={() => {
-                            startGame();
+                            if(playerList.length > 1){
+                                startGame();
+                            }
+                            else{
+                                setPlayErrorMsg("Minimum Two Players are required");
+                            }
                         }}
                         name="Play"
                         primary
