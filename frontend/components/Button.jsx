@@ -1,6 +1,6 @@
 import {forwardRef} from "react"
 
-const Button = forwardRef(({onClick,name,primary},ref) => {
+const Button = forwardRef(({onClick,name,primary,style},ref) => {
     const base = {
         fontFamily: "'Playfair Display', serif",
         fontSize: "1rem",
@@ -17,7 +17,7 @@ const Button = forwardRef(({onClick,name,primary},ref) => {
 
     return (
         <button
-            style={base}
+            style={{...base,...style}}
             ref={ref}
             onClick={onClick}
             onMouseEnter={e => { e.currentTarget.style.opacity = "0.8"; e.target.style.transform = "translateY(-2px)"; }}

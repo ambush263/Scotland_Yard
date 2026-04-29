@@ -1,5 +1,6 @@
 const maps = {
 "scotland-yard" : {
+        "name" : "Scotland Yard",
         "nodes" : {
             "node1" : {
                 "value" : 1,
@@ -9,6 +10,7 @@ const maps = {
     },
 
 "model-map": {
+  "name" : "Development Map",
   "nodes": {
     "1": {
       "connections": {

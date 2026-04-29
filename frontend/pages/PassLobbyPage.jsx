@@ -107,7 +107,7 @@ function PassLobbyPage() {
                     ))}
                 </ul>
                 <span className={styles.buttonRow}>
-                    <Button name="Settings"></Button>
+                    <Button onClick={() => navigate("/gameSettings")} name="Settings"></Button>
                     <Button
                         onClick={() => {
                             startGame();
