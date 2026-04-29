@@ -13,6 +13,10 @@ def store():
 @app.route("/login")
 def save_user():
     data = request.json()
+
+@app.route("/start-game",methods=["POST"])
+def start_game():
+    return
     
 if __name__ == "__main__":
     app.run(debug=True)

@@ -9,7 +9,7 @@ const maps = {
         }
     },
 
-"model-map": {
+"development-map": {
   "name" : "Development Map",
   "nodes": {
     "1": {
